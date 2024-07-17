@@ -1,21 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: MYAPP
-  namespace: default
+  name: eks-fe-service
+  namespace: praktikum-eks
 spec:
   selector:
-    app: MYAPP
+    app: eks-fe
   type: ClusterIP
-  sessionAffinity: None
-  sessionAffinityConfig:
-    clientIP:
-      timeoutSeconds: 10800
   ports:
-  - name: MYAPP
+  - name: eks-fe-port
     protocol: TCP
-    port: 3000
+    port: 80
     targetPort: 3000 
     # If you set the `spec.type` field to `NodePort` and you want a specific port number,
     # you can specify a value in the `spec.ports[*].nodePort` field.
-    nodePort: 10711
