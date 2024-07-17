@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eks-be-service
+  namespace: praktikum-eks
+spec:
+  selector:
+    app: eks-be
+  type: ClusterIP
+  ports:
+  - name: eks-be-port
+    protocol: TCP
+    port: 80
+    targetPort: 3002 
+    # If you set the `spec.type` field to `NodePort` and you want a specific port number,
+    # you can specify a value in the `spec.ports[*].nodePort` field.
